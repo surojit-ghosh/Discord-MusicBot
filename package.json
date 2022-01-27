@@ -1,0 +1,26 @@
+{
+  "name": "musicbot",
+  "version": "1.0.0",
+  "description": "An advanced discord music bot",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmJit/MusicBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmJit/MusicBot/issues"
+  },
+  "homepage": "https://github.com/AmJit/MusicBot#readme",
+  "dependencies": {
+    "discord.js": "^13.6.0",
+    "dotenv": "^14.3.2"
+  }
+}
