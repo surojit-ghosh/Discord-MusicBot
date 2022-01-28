@@ -1,5 +1,5 @@
 {
-  "name": "musicbot",
+  "name": "discord-musicbot",
   "version": "1.0.0",
   "description": "An advanced discord music bot",
   "main": "index.js",
@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/AmJit/MusicBot#readme",
   "dependencies": {
+    "chalk": "^5.0.0",
     "discord.js": "^13.6.0",
-    "dotenv": "^14.3.2"
+    "dotenv": "^14.3.2",
+    "fs": "^0.0.1-security"
   }
 }
