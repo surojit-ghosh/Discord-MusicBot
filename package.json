@@ -24,6 +24,7 @@
     "discord.js": "^13.6.0",
     "dotenv": "^14.3.2",
     "erela.js": "^2.3.3",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "mongoose": "^6.2.1"
   }
 }
