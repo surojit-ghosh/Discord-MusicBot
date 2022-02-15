@@ -9,22 +9,18 @@ const lavalink = (client) => {
             if (guild) guild.shard.send(payload);
         }
     }).on("nodeConnect", (node) => {
-        console.log(chalk.greenBright(`Node connected :: ${node.options.identifier}`));
+        console.log(chalk.bgGreen(` [lavalink] `) + chalk.greenBright(` node connected :: ${node.options.identifier}`));
     }).on("nodeCreate", (node) => {
-        console.log(chalk.greenBright(`Node created :: ${node.options.identifier}`));
+        console.log(chalk.bgGreen(` [lavalink] `) + chalk.greenBright(` node created :: ${node.options.identifier}`));
     }).on("nodeReconnect", (node) => {
-        console.log(chalk.redBright(`Node reconnecting... :: ${node.options.identifier}`));
+        console.log(chalk.bgGreen(` [lavalink] `) + chalk.redBright(` node reconnecting... :: ${node.options.identifier}`));
     }).on("nodeDisconnect", (node) => {
-        console.log(chalk.redBright(`Node disconnected :: ${node.options.identifier}`));
-        setTimeout(() => {
-            node.connect();
-        }, 1000);
+        console.log(chalk.bgRed(` [lavalink] `) + chalk.redBright(` node disconnected :: ${node.options.identifier}`));
+        setTimeout(() => node.connect(), 1 * 60 * 1000);
     }).on("nodeError", (node, error) => {
-        console.log(chalk.redBright(`Node errored :: ${node.options.identifier}`));
-        setTimeout(() => {
-            node.connect();
-        }, 1000);
+        console.log(chalk.bgRed(` [lavalink] `) + chalk.redBright(` node errored :: ${node.options.identifier}`));
+        setTimeout(() => node.connect(), 1 * 60 * 1000);
     });
-}
+};
 
 export default lavalink;

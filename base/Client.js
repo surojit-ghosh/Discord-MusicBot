@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import { Client, Collection } from 'discord.js';
 import config from '../config.js';
-import { loadCommands, loadEvents, loadSlashCommands, lavalinkManager as manager } from './handlers.js';
+import { loadCommands, loadEvents, loadSlashCommands, lavalinkManager as manager, loadDatabase } from './handlers.js';
 
 export default class extends Client {
     constructor() {
@@ -15,6 +15,7 @@ export default class extends Client {
         loadEvents(this);
         loadCommands(this);
         loadSlashCommands(this);
+        loadDatabase(this);
 
         this.on("disconnect", () => console.log(chalk.redBright("Bot is disconnecting...")));
         this.on("reconnecting", () => console.log(chalk.redBright("Bot reconnecting...")));
