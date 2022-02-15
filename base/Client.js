@@ -1,7 +1,9 @@
 import chalk from 'chalk';
 import { Client, Collection } from 'discord.js';
-import config from '../config.js';
+import config from '../settings/config.js';
+import color from '../settings/color.js';
 import { loadCommands, loadEvents, loadSlashCommands, lavalinkManager as manager, loadDatabase } from './handlers.js';
+import { logger } from './functions.js';
 
 export default class extends Client {
     constructor() {
@@ -10,7 +12,9 @@ export default class extends Client {
         ['commands', 'slashCommands', 'aliases'].forEach((col) => this[col] = new Collection());
 
         this.config = config;
+        this.color = color;
         this.manager = manager(this);
+        this.log = logger;
 
         loadEvents(this);
         loadCommands(this);
