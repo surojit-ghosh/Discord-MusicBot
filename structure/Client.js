@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import { Client, Collection } from 'discord.js';
-import config from '../settings/config.js';
-import color from '../settings/color.js';
+import config from './settings/config.js';
+import color from './settings/color.js';
 import { loadCommands, loadEvents, loadSlashCommands, lavalinkManager as manager, loadDatabase } from './handlers.js';
 import { logger } from './functions.js';
 

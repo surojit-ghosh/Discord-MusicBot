@@ -1,5 +1,4 @@
-import guildModel from '../models/guild.js';
-import chalk from 'chalk';
+import guildModel from '../structure/models/guild.js';
 let cooldown = {};
 
 export default {
@@ -25,7 +24,7 @@ export default {
             const Permissions = perms.filter((x) => !message.guild.me.permissions.has(x)).map((x) => '`' + x + '`');
             if (Permissions.length) return message.channel.send({
                 embeds: [{
-                    color: config.color.error,
+                    color: client.color.error,
                     description: `I need ${Permissions.join(', ')} permission(s) to execute the command!`,
                 }]
             }).catch(() => { });
@@ -35,7 +34,7 @@ export default {
             const Permissions = command.permissions.author.filter((x) => !message.member.permissions.has(x)).map((x) => '`' + x + '`');
             if (Permissions.length) return message.channel.send({
                 embeds: [{
-                    color: config.color.error,
+                    color: client.color.error,
                     description: `You need ${Permissions.join(', ')} permission(s) to execute this command!`,
                 }]
             }).catch(() => { });
@@ -49,7 +48,7 @@ export default {
         let time = uCooldown[command.name] || 0;
         if (time && time > Date.now()) return message.channel.send({
             embeds: [{
-                color: config.color.error,
+                color: client.color.error,
                 description: `You can again use this command in ${Math.ceil((time - Date.now()) / 1000)} second(s)`,
             }]
         });
