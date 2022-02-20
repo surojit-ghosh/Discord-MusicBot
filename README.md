@@ -1,3 +1,3 @@
 # MusicBot
 
-An advanced discord music bot
+An advanced discord lavalink music bot

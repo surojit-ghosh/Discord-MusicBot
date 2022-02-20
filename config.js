@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-dotenv.config();
+dotenv.config({ path: './config.env' });
 
 export default {
     token: process.env.TOKEN || '',
@@ -12,5 +12,9 @@ export default {
         port: parseInt(process.env.LAVALINK_PORT) || 443,
         password: process.env.LAVALINK_PASSWORD || '',
         secure: true
+    },
+    color: {
+        error: 'RED',
+        default: '#00FFFF'
     }
 }
