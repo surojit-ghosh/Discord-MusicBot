@@ -1,5 +1,5 @@
-import { pannel } from '../../structure/functions.js';
-import guildModel from '../../structure/models/guild.js'
+import pannel from '../../functions/pannel.js';
+import guildModel from '../../models/guild.js'
 
 export default {
     name: 'setup',
