@@ -1,11 +1,12 @@
 import guildModel from '../../models/guild.js';
+import music from '../extraEvents/music.js';
 let cooldown = {};
 
 export default {
     name: 'messageCreate',
     run: async (client, message) => {
         if (message.author.bot || !message.guild || message.webhookId) return;
-
+        music(client, message);
         const guildData = await guildModel.findOne({ guildId: message.guild.id });
         client.prefix = guildData?.prefix ? guildData?.prefix : client.config.prefix;
         if (!message.content.startsWith(client.prefix)) return;

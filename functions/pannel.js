@@ -1,8 +1,8 @@
 import { MessageEmbed, MessageAttachment } from "discord.js";
 
-const pannel = (client) => {
+const pannel = (client, player = null) => {
     const content = '__**Queue list:**__';
-    console.log(client.manager)
+
     const attachment = new MessageAttachment('./structure/assets/music.gif', 'music.gif');
     const embed = new MessageEmbed()
         .setDescription(`Music`)
