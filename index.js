@@ -84,7 +84,7 @@ client.manager.on("nodeConnect", (node) => {
 }).on("nodeCreate", (node) => {
     console.log(chalk.bgGreen(` [lavalink] `) + chalk.green(` node created :: ${node.options.identifier}`));
 }).on("nodeReconnect", (node) => {
-    console.log(chalk.bgGreen(` [lavalink] `) + chalk.red(` node reconnecting... :: ${node.options.identifier}`));
+    console.log(chalk.bgGreen(` [lavalink] `) + chalk.green(` node reconnecting... :: ${node.options.identifier}`));
 }).on("nodeDisconnect", (node) => {
     console.log(chalk.bgRed(` [lavalink] `) + chalk.red(` node disconnected :: ${node.options.identifier}`));
     setTimeout(() => node.connect(), 1 * 60 * 1000);
