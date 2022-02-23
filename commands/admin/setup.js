@@ -24,7 +24,7 @@ export default {
                 try {
                     await cnl?.messages.fetch(guildData?.messageId);
                 } catch (error) {
-                    let msgg = await cnl?.send(pannel());
+                    let msgg = await cnl?.send(await pannel(client));
                     guildData.messageId = msgg.id;
                 };
                 guildData.save();
@@ -47,7 +47,7 @@ export default {
             ]
         });
 
-        let mssg = await channel.send(pannel());
+        let mssg = await channel.send(pannel(client));
 
         guildData.channelId = channel.id;
         guildData.messageId = mssg.id;

@@ -48,10 +48,10 @@ export default {
             voiceChannel: message.member.voice.channel.id,
             textChannel: message.channel.id,
             selfDeafen: true,
-            volume: 80
+            volume: 100
         });
 
-        if (player && player.node && !player.node.connected) await player.node.connect();
+        // if (player && player.node && !player.node.connected) await player.node.connect();
 
         if (player.state != "CONNECTED") await player.connect();
         let res;

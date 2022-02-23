@@ -96,17 +96,17 @@ client.manager.on("nodeConnect", (node) => {
 client.on("disconnect", () => {
     console.log(chalk.redBright("Bot is disconnecting..."))
 }).on("reconnecting", () => {
-    console.log(chalk.redBright("Bot reconnecting..."))
+    console.log(chalk.redBright("Bot reconnecting..."));
 }).on('warn', (error) => {
-    console.log(chalk.redBright(error))
+    console.log(chalk.redBright(error));
 }).on('error', (error) => {
-    console.log(chalk.redBright(error))
+    console.log(chalk.redBright(error));
 });
 
 process.on('unhandledRejection', (error) => {
-    console.log(chalk.redBright(error))
+    console.log(chalk.redBright(error));
 }).on('uncaughtException', (error) => {
-    console.log(chalk.redBright(error))
+    console.log(chalk.redBright(error));
 });
 
 client.login(config.token);

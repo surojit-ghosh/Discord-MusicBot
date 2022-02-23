@@ -1,5 +1,5 @@
 import guildModel from '../../models/guild.js';
-import music from '../extraEvents/music.js';
+import music from '../player/music.js';
 let cooldown = {};
 
 export default {
