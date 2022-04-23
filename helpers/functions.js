@@ -39,7 +39,7 @@ module.exports.pannel = async (client, player = null) => {
         let embed = new MessageEmbed()
             .setTitle(`No song playing currently`)
             .setColor(client.color.default)
-            .setDescription(` `)
+            .setDescription(`Send a song name or url to play`)
             .setImage('https://c.tenor.com/Wgo-XGZmUNAAAAAC/music-listening-to-music.gif');
         return {
             content,
