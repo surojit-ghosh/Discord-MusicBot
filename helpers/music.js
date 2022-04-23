@@ -1,7 +1,7 @@
-import guildModel from '../../models/guild.js';
-import pannel from '../../functions/pannel.js';
+const guildModel = require('../models/guild.js');
+const { pannel } = require('./functions.js');
 
-const music = async (client, message) => {
+module.exports = async (client, message) => {
     const guildData = await guildModel.findOne({ guildId: message.guild.id });
     if (message.channel.id !== guildData?.channelId) return;
     const cnl = await message.guild.channels.cache.get(guildData?.channelId);
@@ -61,10 +61,23 @@ const music = async (client, message) => {
         voiceChannel: message.member.voice.channel.id,
         textChannel: message.channel.id,
         selfDeafen: true,
-        volume: 100
+        volume: 80
     });
 
-    if (player.state != "CONNECTED") await player.connect();
+    try {
+        if (player.state != "CONNECTED") await player.connect();
+    } catch (error) {
+        return message.reply({
+            embeds: [{
+                color: client.color.error,
+                description: `Unable to connect the player`
+            }]
+        }).then((i) => setTimeout(() => {
+            if (i) i?.delete();
+            if (message) message?.delete();
+        }, 5 * 1000));
+    }
+
     let res;
     try {
         res = await player.search(search, message.author);
@@ -106,26 +119,27 @@ const music = async (client, message) => {
         case "TRACK_LOADED":
             var track = res.tracks[0];
             player.queue.add(track);
+            if (message) message.delete();
             if (!player.playing && !player.paused && !player.queue.size) {
                 player.play();
-                return message.delete();
+                return pannel(client, player);
             }
-            return pannel(client, message, player);
+            return pannel(client, player);
         case 'PLAYLIST_LOADED':
             player.queue.add(res.tracks);
+            if (message) message.delete();
             if (!player.playing && !player.paused && player.queue.totalSize === res.tracks.length) {
                 player.play();
-                return message.delete();
+                return pannel(client, player);
             }
-            return pannel(client, message, player);
+            return pannel(client, player);
         case 'SEARCH_RESULT':
             player.queue.add(res.tracks[0]);
+            if (message) message.delete();
             if (!player.playing && !player.paused && !player.queue.size) {
                 player.play();
-                return message.delete();
+                return pannel(client, player);
             }
-            return pannel(client, message, player);
+            return pannel(client, player);
     };
 };
-
-export default music;

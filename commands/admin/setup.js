@@ -1,14 +1,14 @@
-import pannel from '../../functions/pannel.js';
-import guildModel from '../../models/guild.js'
+const { pannel } = require('../../helpers/functions.js');
+const guildModel = require('../../models/guild.js');
 
-export default {
+module.exports = {
     name: 'setup',
     category: 'admin',
     usage: 'setup',
     cooldown: 1 * 60 * 1000,
     permissions: {
-        client: [],
-        author: []
+        client: ['MANAGE_CHANNELS'],
+        author: ['ADMINISTRATOR']
     },
     aliases: [],
     description: 'Set up the music commands channel',

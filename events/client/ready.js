@@ -1,12 +1,13 @@
-import chalk from 'chalk';
+module.exports.run = (client) => {
+    console.log('Ready logged in as :: ' + client.user.tag);
 
-export default {
-    name: 'ready',
-    run: async (client) => {
-        console.log(chalk.bgGreen(` [Bot] `) + chalk.green(' ready logged in as - ' + client.user.username));
-        client.manager.init(client.user.id);
-        client.guilds.cache.get(client.config.guild).commands.set([...client.slashCommands].map((command) => command[1].data)).then(() => {
-            console.log(chalk.bgGreen(` [Slash Command] `) + chalk.green(` successfully deployed`));
-        }).catch((e) => console.log(chalk.bgRed(` [Slash Command] `) + chalk.red(e)));
-    }
-}
+    client.user.setActivity('Music');
+
+    client.manager.init(client.user.id);
+
+    if (client.config.production) {
+        client.application.commands.set(client.slashCommands.map((cmd) => cmd)).then((data) => {
+            console.log(`${data.size} slashCommands registered`);
+        }).catch((e) => console.log(e));
+    };
+};
