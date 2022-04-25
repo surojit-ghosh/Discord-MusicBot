@@ -13,8 +13,11 @@ module.exports.pannel = async (client, player = null) => {
 
     if (player) {
         let queue = await player.queue.map((song, index) => `${index + 1}. ${song.title}`);
-        if (player.queue.totalSize > 0) {
+        if (player.queue.totalSize > 0 && player.queue.totalSize < 10) {
             content += '\n\n' + queue.join('\n');
+        } else if (player.queue.totalSize > 10) {
+            let songs = queue.slice(0, 10);
+            content += '\n\n' + songs.join('\n') + '\n\n' + (player.queue.totalSize - 10) + ' more songs in the queue';
         }
 
         if (player.paused) {

@@ -36,6 +36,9 @@ module.exports = {
                 if (!player) return collector.stop();
                 await player.stop();
                 await player.queue.clear();
+                i.reply({ embeds: [{ color: client.color.default, description: `Queue cleared` }] });
+                setTimeout(() => { i.deleteReply(); }, 3 * 1000);
+                pannel(client, player);
             } else if (i.customId == 'next') {
                 if (!player) return collector.stop();
                 await player.stop();

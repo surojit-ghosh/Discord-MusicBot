@@ -47,7 +47,7 @@ module.exports = {
             ]
         });
 
-        let mssg = await channel.send(pannel(client));
+        let mssg = await channel.send(await pannel(client));
 
         guildData.channelId = channel.id;
         guildData.messageId = mssg.id;
