@@ -1,7 +1,7 @@
-const guildModel = require('../models/guild.js');
-const { pannel } = require('./functions.js');
+import guildModel from '../models/guild.js';
+import { pannel } from './functions.js';
 
-module.exports = async (client, message) => {
+export default async (client, message) => {
     const guildData = await guildModel.findOne({ guildId: message.guild.id });
     if (message.channel.id !== guildData?.channelId) return;
     const cnl = await message.guild.channels.cache.get(guildData?.channelId);

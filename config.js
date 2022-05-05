@@ -1,9 +1,11 @@
-require('dotenv').config({ path: './config.env' });
+import dotenv from 'dotenv';
+dotenv.config({ path: './config.env' });
 
-module.exports = {
+export default {
     token: process.env.TOKEN || "",
     db: process.env.DB || "",
     prefix: process.env.PREFIX || "",
+    port: process.env.PORT || 3001,
     color: {
         default: '00FFFF',
         error: 'RED'

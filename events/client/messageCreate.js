@@ -1,8 +1,8 @@
-const guildModel = require('../../models/guild.js');
-const music = require('../../helpers/music.js');
+import guildModel from '../../models/guild.js';
+import music from '../../helpers/music.js';
 let cooldown = {};
 
-module.exports = {
+export default {
     name: 'messageCreate',
     run: async (client, message) => {
         if (message.author.bot || !message.guild || message.webhookId) return;

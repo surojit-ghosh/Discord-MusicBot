@@ -1,4 +1,5 @@
-module.exports = {
+export default {
+    name: 'trackError',
     run: async (client, player, track, payload) => {
         console.error(payload.error);
 

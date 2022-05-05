@@ -1,7 +1,7 @@
-const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
-const guildModel = require('../models/guild.js');
+import { MessageEmbed, MessageActionRow, MessageButton } from "discord.js";
+import guildModel from '../models/guild.js';
 
-module.exports.pannel = async (client, player = null) => {
+const pannel = async (client, player = null) => {
     let content = '__**Queue list:**__';
     let row = new MessageActionRow().addComponents(
         new MessageButton().setCustomId('pause').setEmoji('967012014713102387').setStyle('SECONDARY'),
@@ -52,4 +52,4 @@ module.exports.pannel = async (client, player = null) => {
     }
 };
 
-
+export { pannel };

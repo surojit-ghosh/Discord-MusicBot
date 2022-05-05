@@ -1,3 +1,6 @@
-module.exports.run = (client, node) => {
-    console.log(`Node created :: ${node.options.identifier}`);
+export default {
+    name: 'nodeCreate',
+    run: async (client, node) => {
+        console.log(`Node created :: ${node.options.identifier}`);
+    }
 };

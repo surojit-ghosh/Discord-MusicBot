@@ -1,4 +1,5 @@
-module.exports = {
+export default {
+    name: 'playerMove',
     run: async (client, player, oldChannel, newChannel) => {
         const guild = client.guilds.cache.get(player.guild);
         if (!guild) return;

@@ -1,3 +1,6 @@
-module.exports.run = (client, node) => {
-    console.log(`Node reconnecting... :: ${node.options.identifier}`);
+export default {
+    name: 'nodeReconnect',
+    run: async (client, node) => {
+        console.log(`Node reconnecting... :: ${node.options.identifier}`);
+    }
 };

@@ -1,7 +1,8 @@
-const guildModel = require('../../models/guild.js');
-const { pannel } = require('../../helpers/functions.js');
+import guildModel from '../../models/guild.js';
+import { pannel } from '../../helpers/functions.js';
 
-module.exports = {
+export default {
+    name: 'trackStart',
     run: async (client, player, track, playload) => {
         const guildData = await guildModel.findOne({ guildId: player.options.guild });
         const channel = await client.guilds.cache.get(player.options.guild).channels.cache.get(player.options.textChannel);

@@ -1,6 +1,7 @@
-const { pannel } = require('../../helpers/functions.js');
+import { pannel } from '../../helpers/functions.js';
 
-module.exports = {
+export default {
+    name: 'trackEnd',
     run: async (client, player, track, playload) => {
         const autoplay = player.get("autoplay");
 

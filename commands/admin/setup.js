@@ -1,7 +1,7 @@
-const { pannel } = require('../../helpers/functions.js');
-const guildModel = require('../../models/guild.js');
+import { pannel } from '../../helpers/functions.js';
+import guildModel from '../../models/guild.js';
 
-module.exports = {
+export default {
     name: 'setup',
     category: 'admin',
     usage: 'setup',
@@ -37,7 +37,7 @@ module.exports = {
             };
         };
 
-        var channel = await message.guild.channels.create(`${client.user.username} commands`, {
+        var channel = await message.guild.channels.create(`${client.user.username} cmds`, {
             reason: `Music commands channel for ${client.user.username}`,
             permissionOverwrites: [
                 {

@@ -1,7 +1,8 @@
-const { pannel } = require('../../helpers/functions.js');
-const guildModel = require('../../models/guild.js');
+import { pannel } from '../../helpers/functions.js';
+import guildModel from '../../models/guild.js';
 
-module.exports = {
+export default {
+    name: 'queueEnd',
     run: async (client, player) => {
         const channel = client.channels.cache.get(player.textChannel);
 

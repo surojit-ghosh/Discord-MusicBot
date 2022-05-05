@@ -1,3 +1,6 @@
-module.exports.run = (client, node) => {
-    console.log(`Node connected :: ${node.options.identifier}`);
+export default {
+    name: 'nodeConnect',
+    run: async (client, node) => {
+        console.log(`Node connected :: ${node.options.identifier}`);
+    }
 };

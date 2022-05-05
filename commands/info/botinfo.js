@@ -1,8 +1,8 @@
-const { MessageEmbed } = require('discord.js');
-const ms = require('pretty-ms');
-const os = require('node-os-utils');
+import { MessageEmbed } from 'discord.js';
+import ms from 'pretty-ms';
+import os from 'node-os-utils';
 
-module.exports = {
+export default {
     name: 'botinfo',
     category: 'info',
     usage: 'botinfo',
