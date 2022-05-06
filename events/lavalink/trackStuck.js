@@ -12,7 +12,7 @@ export default {
         }).then((msg) => {
             setTimeout(() => msg?.delete(), 5 * 1000);
         });
-        console.log(`Error when loading song! error in :: ${player.guild}`);
+        console.log(`Error when loading song! error in : ${player.guild}`);
         player.stop();
         if (!player.voiceChannel) player.destroy();
     }

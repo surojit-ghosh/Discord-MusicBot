@@ -6,6 +6,7 @@ export default {
     db: process.env.DB || "",
     prefix: process.env.PREFIX || "",
     port: process.env.PORT || 3001,
+    production: process.env.PRODUCTION ? true : false,
     color: {
         default: '00FFFF',
         error: 'RED'

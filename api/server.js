@@ -1,13 +1,20 @@
 import express from 'express';
-import config from '../config.js';
+import path from 'path';
+import apiRoutea from './routes/commands.js';
 
 const app = express();
-const port = config.port;
 
 export default async (client) => {
-    app.get('/', (req, res) => {
-        res.send(`Ok`);
-    });
+    const port = client.config.port;
+
+    app.use('/api', apiRoutea(client));
+
+    if (client.config.production) {
+        app.use(express.static(path.join('./dashboard', 'build')));
+        app.get('*', (req, res) => {
+            res.sendFile(path.join('./dashboard', 'build', 'index.html'));
+        });
+    };
 
     app.listen(port, () => console.log(`Server running on port : ${port}`));
 };

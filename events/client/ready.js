@@ -3,7 +3,7 @@ import server from '../../api/server.js';
 export default {
     name: 'ready',
     run: async (client) => {
-        console.log('Ready logged in as :: ' + client.user.tag);
+        console.log('Ready logged in as : ' + client.user.tag);
 
         server(client);
 

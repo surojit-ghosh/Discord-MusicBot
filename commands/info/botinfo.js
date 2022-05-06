@@ -22,10 +22,10 @@ export default {
             .setColor(client.color.default)
             .setTitle('Information about ' + client.user.username)
             .setThumbnail(client.user.displayAvatarURL())
-            .setDescription('```\nCPU Usage  :: ' + cpu + ' %' +
-                '\nRam Usage  :: ' + Math.ceil(ram.usedMemMb) + '/' + Math.ceil(ram.totalMemMb) + ' MB' +
-                '\nUptime     :: ' + uptime +
-                '\nPing       :: ' + client.ws.ping + ' ms\n```')
+            .setDescription('```\nCPU Usage  : ' + cpu + ' %' +
+                '\nRam Usage  : ' + Math.ceil(ram.usedMemMb) + '/' + Math.ceil(ram.totalMemMb) + ' MB' +
+                '\nUptime     : ' + uptime +
+                '\nPing       : ' + client.ws.ping + ' ms\n```')
             .setTimestamp();
 
         return message.channel.send({ embeds: [embed] });

@@ -1,0 +1,89 @@
+h1 {
+    color: white;
+    text-align: center;
+    margin: 100px 0;
+}
+
+.commands {
+    margin: 0 20vw;
+    display: flex;
+    flex-direction: row;
+    color: white;
+
+    // @media screen and (max-width:1600px) {
+    //     margin: 0 150px;
+    // }
+
+    @media screen and (max-width:1200px) {
+        margin: 0 5vw;
+        flex-direction: column;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    .commands-category {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--dark-grey);
+        margin: 5px;
+        padding: 5px;
+        border-radius: 3px;
+        height: fit-content;
+
+        button {
+            background-color: var(--secondary);
+            border: 0px;
+            width: 300px;
+            margin: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+            color: white;
+            border-radius: 3px;
+            text-transform: capitalize;
+            font-size: 16px;
+
+            @media screen and (max-width:1200px) {
+                width: auto;
+            }
+        }
+
+        .active {
+            background-color: var(--primary);
+        }
+    }
+
+    .commands-list {
+        margin: 5px;
+        flex: 1;
+
+        .cmd {
+            background-color: var(--dark-grey);
+            padding: 10px 15px;
+            border-radius: 3px;
+            margin-bottom: 10px;
+
+            div {
+                display: flex;
+                align-items: center;
+
+                .command__description {
+                    margin-left: 5px;
+                    color: var(--grey);
+                }
+            }
+
+            .command__usage {
+                margin-top: 15px;
+
+                span {
+                    background-color: #18191d;
+                    padding: 0 5px;
+                    border-radius: 3px;
+                    color: var(--primary);
+                }
+            }
+        }
+    }
+}
