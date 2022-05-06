@@ -9,7 +9,7 @@ export default async (client) => {
 
     app.use('/api', apiRoutea(client));
 
-    if (client.config.production) {
+    if (client.config.host) {
         app.use(express.static(path.join('./dashboard', 'build')));
         app.get('*', (req, res) => {
             res.sendFile(path.join('./dashboard', 'build', 'index.html'));
