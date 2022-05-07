@@ -11,8 +11,9 @@ export default async (client) => {
 
     if (client.config.host) {
         app.use(express.static(path.join('./dashboard', 'build')));
+
         app.get('*', (req, res) => {
-            res.sendFile(path.join('./dashboard', 'build', 'index.html'));
+            res.sendFile('index.html', { root: path.resolve('./dashboard/build') });
         });
     };
 
