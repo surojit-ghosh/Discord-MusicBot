@@ -36,7 +36,7 @@ const Commands = () => {
 
     return (
         <>
-            <h1>Commands</h1>
+            <h1 className='commands__header'>Commands</h1>
             <div className='commands'>
                 {isFetching && <p>Fetching commands from bot...</p>}
                 {isError && <p>Unable to fetch data from the bot...</p>}

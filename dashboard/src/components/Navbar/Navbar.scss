@@ -1,0 +1,222 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px 150px;
+
+    @media screen and(max-width:1450px) {
+        margin: 10px 50px;
+    }
+
+    @media screen and(max-width:1250px) {
+        margin: 10px 10px;
+        justify-content: space-between;
+    }
+
+    @media screen and(max-width:1200px) {
+        margin: 10px 15px;
+    }
+
+    .logo {
+        a {
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 35px;
+
+            @media screen and(max-width:1200px) {
+                font-size: 30px;
+            }
+        }
+    }
+
+    .login {
+        background-color: var(--primary);
+        padding: 7px 20px;
+        border-radius: 3px;
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+            background-color: var(--primary-dark);
+        }
+
+        @media screen and(min-width:1200px) {
+            display: none;
+        }
+    }
+
+    .pages {
+        flex: 1;
+        margin: 0 100px;
+
+        a {
+            text-decoration: none;
+            color: white;
+            margin: 0 25px;
+
+            &:hover {
+                color: var(--grey);
+            }
+        }
+
+        a.active {
+            color: var(--grey);
+        }
+
+        @media screen and(max-width:1200px) {
+            display: none;
+        }
+    }
+
+    .btns {
+        a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .invite {
+            border: 2px solid var(--primary);
+            padding: 5px 20px;
+            border-radius: 3px;
+
+            &:hover {
+                background-color: var(--primary);
+            }
+        }
+
+        .login {
+            background-color: var(--primary);
+            padding: 7px 20px;
+            border-radius: 3px;
+
+            &:hover {
+                background-color: var(--primary-dark);
+            }
+        }
+
+        @media screen and(max-width:1200px) {
+            display: none;
+        }
+    }
+
+    .menu {
+        @media screen and (min-width:1200px) {
+            display: none;
+        }
+
+        .menu-btn {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 5px;
+            // transition: all .5s ease-in-out;
+        }
+
+        .menu-btn::before,
+        .menu-btn::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            border-radius: 5px;
+            background: white;
+            // transition: all .5s ease-in-out;
+        }
+
+        .menu-btn::before {
+            transform: translateY(-8px);
+        }
+
+        .menu-btn::after {
+            transform: translateY(8px);
+        }
+
+        @media screen and (min-width:1200px) {
+            display: none;
+        }
+    }
+
+    .active-menu {
+        .menu-btn {
+            transform: translateX(25px);
+            background: transparent;
+        }
+
+        .menu-btn::before {
+            transform: rotate(45deg) translate(-15px, 15px);
+        }
+
+        .menu-btn::after {
+            transform: rotate(-45deg) translate(-15px, -15px);
+        }
+    }
+}
+
+.responsive {
+    position: fixed;
+    background-color: var(--secondary);
+    display: flex;
+    z-index: 1;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 5px 5px 1px var(--dark-grey);
+
+    @media screen and (min-width:1200px) {
+        display: none;
+    }
+
+    .pages {
+        display: flex;
+        width: 100vw;
+        align-items: center;
+        flex-direction: column;
+        // margin: 25px 0;
+
+        a {
+            text-decoration: none;
+            color: white;
+            margin: 10px 0;
+
+            &:hover {
+                color: var(--grey);
+            }
+        }
+
+        a.active {
+            color: var(--grey);
+        }
+    }
+
+    .btns {
+        margin: 50px 0;
+
+        a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .invite {
+            border: 2px solid var(--primary);
+            padding: 5px 20px;
+            border-radius: 3px;
+
+            &:hover {
+                background-color: var(--primary);
+            }
+        }
+
+        .login {
+            background-color: var(--primary);
+            padding: 7px 20px;
+            border-radius: 3px;
+
+            &:hover {
+                background-color: var(--primary-dark);
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "build",
+    "site": "harmonybot",
+    "rewrites": [
+      {
+        "source": "/commands",
+        "destination": "/index.html"
+      }
+    ],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
