@@ -10,8 +10,8 @@ const Navbar = () => {
         return (
             <div className="pages">
                 <NavLink onClick={() => setActive(!active)} to='/'>Home</NavLink>
-                <NavLink onClick={() => setActive(!active)}  to='/commands'>Commands</NavLink>
-                <NavLink onClick={() => setActive(!active)}  to='/dashboard'>Dashboard</NavLink>
+                <NavLink onClick={() => setActive(!active)} to='/commands'>Commands</NavLink>
+                <NavLink onClick={() => setActive(!active)} to='/dashboard'>Dashboard</NavLink>
                 <a onClick={() => setActive(!active)} target='_blank' rel="noopener noreferrer" href="https://discord.gg/KpSY4ej7mv">Support Server</a>
             </div>
         );
@@ -42,7 +42,7 @@ const Navbar = () => {
                 <div className="logo">
                     <Link to='/'>Harmony</Link>
                 </div>
-                {!active &&(<Login />)}
+                {!active && (<Login />)}
                 <Pages />
                 <Btns />
 
