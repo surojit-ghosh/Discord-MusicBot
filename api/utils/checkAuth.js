@@ -1,0 +1,1 @@
+export const checkAuth = (req, res, next) => req.user ? next() : res.send('Unauthorized')

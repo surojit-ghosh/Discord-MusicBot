@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const guildSchema = new mongoose.Schema({
     guildId: { type: String, required: true },
-    prefix: { type: String, required: false },
+    prefix: { type: String },
     musicPannel: {
         type: {
             channelId: { type: String, required: false },

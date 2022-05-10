@@ -2,12 +2,57 @@ import express from 'express';
 import path from 'path';
 import cors from 'cors';
 import mongoStore from 'connect-mongo';
+import passport from 'passport';
+import { Strategy } from 'passport-discord';
+import session from 'express-session';
 import config from '../config.js';
-import apiRoute from './routes/commands.js';
+import routes from './routes/index.js';
+import userModel from '../models/user.js';
 
 const app = express();
 
 export default async (client) => {
+    passport.serializeUser((user, done) => {
+        return done(null, user.userId);
+    });
+
+    passport.deserializeUser(async (id, done) => {
+        try {
+            const user = await userModel.findOne({ userId: id });
+            return user ? done(null, user) : done(null, null);
+        } catch (err) {
+            console.log(err);
+            return done(err, null);
+        }
+    });
+
+    passport.use(new Strategy(
+        {
+            clientID: config.clientId,
+            clientSecret: config.clientSecret,
+            callbackURL: config.callBackURL,
+            scope: ['identify', 'guilds'],
+        },
+        async (accessToken, refreshToken, profile, done) => {
+            const { id: userId } = profile;
+            try {
+                const existingUser = await userModel.findOneAndUpdate(
+                    { userId },
+                    { accessToken, refreshToken },
+                    { new: true }
+                );
+                if (existingUser) return done(null, existingUser);
+                const newUser = new userModel({ userId, accessToken, refreshToken });
+                const savedUser = await newUser.save();
+                return done(null, savedUser);
+            } catch (err) {
+                console.log(err);
+                return done(err, undefined);
+            }
+        }
+    )
+    );
+
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
     app.use(cors({ origin: [config.dashboardURL], credentials: true }));
@@ -26,7 +71,7 @@ export default async (client) => {
 
     app.use((req, res, next) => next()); // setTimeout
 
-    app.use('/api', apiRoute(client));
+    app.use('/', routes(client));
 
     if (client.config.production) {
         app.use(express.static(path.join('./dashboard', 'build')));
