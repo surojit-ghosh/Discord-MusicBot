@@ -4,7 +4,7 @@
     "site": "harmonybot",
     "rewrites": [
       {
-        "source": "/commands",
+        "source": "**",
         "destination": "/index.html"
       }
     ],

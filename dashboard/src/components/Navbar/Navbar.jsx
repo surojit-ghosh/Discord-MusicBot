@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
 import './Navbar.scss';
 
 const Navbar = () => {
-    const [active, setActive] = useState(false);
+    const [active, setActive] = useState(true);
+    const [name, setName] = useState('Harmony');
+
+    useEffect(() => {
+        fetch('/api/name')
+            .then((res) => res.json())
+            .then((data) => {
+                setName(data.name);
+                setName('Harmony');
+            })
+            .catch(() => { });
+    }, []);
 
     const Pages = () => {
         return (
@@ -40,7 +51,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="logo">
-                    <Link to='/'>Harmony</Link>
+                    <Link to='/'>{name}</Link>
                 </div>
                 {!active && (<Login />)}
                 <Pages />

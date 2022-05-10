@@ -82,7 +82,8 @@
             border-radius: 3px;
 
             &:hover {
-                background-color: var(--primary);
+                background-color: var(--primary-dark);
+                border: 2px solid var(--primary-dark);
             }
         }
 

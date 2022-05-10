@@ -17,5 +17,9 @@ export default (client) => {
         res.json({ prefix: client.config.prefix });
     });
 
+    router.get('/name', (req, res) => {
+        res.json({ name: client.user.username });
+    });
+
     return router;
 };
