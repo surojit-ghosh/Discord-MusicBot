@@ -1,0 +1,84 @@
+// Home page main div
+.home {
+    margin: 100px 20vw;
+
+    @media screen and (max-width:1200px) {
+        margin: 100px 5vw;
+    }
+
+    // Home page bot about / header
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        // Bot logo
+        img {
+            border-radius: 50%;
+            height: 7rem;
+        }
+
+        .botinfo {
+            margin: 25px 0;
+
+            // Bot info
+            p {
+                color: white;
+                text-align: center;
+                font-weight: 500;
+                margin: 5px 0;
+
+                span {
+                    font-weight: 700;
+                }
+
+                a {
+                    color: var(--primary);
+                    text-decoration: none;
+                }
+            }
+
+            p:nth-child(1) {
+                font-size: 35px;
+
+                @media screen and (max-width:1200px) {
+                    font-size: 30px;
+                }
+            }
+
+            p:nth-child(2) {
+                font-size: 25px;
+            }
+        }
+
+        // homepage buttons
+        .btns {
+            margin-top: 10px;
+
+            a {
+                margin: 0 10px;
+                padding: 8px 15px;
+                border-radius: 3px;
+                color: white;
+                box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.5);
+            }
+
+            .invite {
+                background-color: var(--primary);
+
+                &:hover {
+                    background-color: var(--primary-dark);
+                }
+            }
+
+            .support {
+                background-color: #4c505a;
+
+                &:hover {
+                    background-color: var(--secondary);
+                }
+            }
+        }
+    }
+}

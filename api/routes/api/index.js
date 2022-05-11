@@ -1,13 +1,13 @@
 import { Router } from "express";
 import config from "../../../config.js";
-import authRoute from './auth/index.js';
-import guildRoute from './guilds/index.js';
+import authRoute from './auth.js';
+import guildRoute from './guilds.js';
 
 const router = Router();
 
 export default (client) => {
     router.use('/auth', authRoute);
-    router.use('/guild', guildRoute);
+    router.use('/guilds', guildRoute);
 
     router.get('/commands', (req, res) => {
         const commands = client.commands.map((cmd) => cmd);
@@ -23,8 +23,8 @@ export default (client) => {
         res.json({ prefix: config.prefix });
     });
 
-    router.get('/name', (req, res) => {
-        res.json({ name: client.user.username });
+    router.get('/bot', (req, res) => {
+        res.json(client.user);
     });
 
     return router;

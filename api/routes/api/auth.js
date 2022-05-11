@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import passport from 'passport';
 import axios from 'axios';
-import config from '../../../../config.js';
-import { DISCORD_API_URL } from '../../../utils/constants.js';
+import config from '../../../config.js';
+import { DISCORD_API_URL } from '../../utils/constants.js';
 
 const router = Router();
 
@@ -18,6 +18,15 @@ router.get('/status', async (req, res) => {
         res.send(userData)
     } else {
         res.send({ msg: 'Unauthorized' })
+    }
+});
+
+router.get('/logout', (req, res) => {
+    if (req.user) {
+        req.logout();
+        res.redirect(config.dashboardURL);
+    } else {
+        res.redirect(config.dashboardURL);
     }
 });
 

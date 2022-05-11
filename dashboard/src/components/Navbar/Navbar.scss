@@ -42,6 +42,10 @@
         display: flex;
         align-items: center;
 
+        .profile {
+            display: flex;
+        }
+
         a {
             text-decoration: none;
             color: var(--grey);
@@ -50,6 +54,16 @@
             &:hover {
                 color: white;
             }
+        }
+
+        .login {
+            color: white;
+        }
+
+        .github {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
         }
 
         .logout {
@@ -106,6 +120,10 @@
     .menu {
         display: flex;
         align-items: center;
+
+        .profile {
+            display: flex;
+        }
 
         a {
             text-decoration: none;

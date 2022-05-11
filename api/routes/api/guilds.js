@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import axios from 'axios';
-import { checkAuth } from '../../../utils/checkAuth.js'
-import config from '../../../../config.js';
-import { DISCORD_API_URL } from '../../../utils/constants.js';
+import { checkAuth } from '../../utils/checkAuth.js'
+import config from '../../../config.js';
+import { DISCORD_API_URL } from '../../utils/constants.js';
 
 const router = Router();
 
