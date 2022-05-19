@@ -15,8 +15,9 @@ router.get('/', checkAuth, async (req, res) => {
         headers: { Authorization: `Bearer ${req.user.accessToken}` }
     });
 
-    const adminGuilds = userGuilds.filter(({ permissions }) => (parseInt(permissions) & 0x8) === 0x8).filter((guild) => botGuilds.some((botGuild) => botGuild.id === guild.id));
-    res.json(adminGuilds);
+    const adminGuilds = userGuilds.filter(({ permissions }) => (parseInt(permissions) & 0x8) === 0x8);
+    const mutualGuilds = adminGuilds.filter((guild) => botGuilds.some((botGuild) => botGuild.id === guild.id));
+    res.json({ adminGuilds, mutualGuilds });
 });
 
 export default router;

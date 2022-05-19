@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import { Navbar } from './components'
-import { Home, Commands, Dashboard, Profile, Loading } from './pages';
+import { Navbar, Loading } from './components'
+import { Home, Commands, Dashboard, Profile } from './pages';
 import mainContext from './contexts/mainContext.jsx';
 
 const App = () => {
@@ -36,9 +36,9 @@ const App = () => {
                         <Routes>
                             <Route path='/' element={<Home />} />
                             <Route path='/commands' element={<Commands />} />
-                            <Route path='/dashboard' element={<Dashboard />} />
                             <Route path='/profile' element={<Profile />} />
-                            {/* <Route path='/d' element={<Navigate to='/' />} /> */}
+                            <Route path='/dashboard' element={<Dashboard />} />
+                            <Route path='/dashboard/:id' element={<Dashboard />} />
                         </Routes>
                     </BrowserRouter>
                 </mainContext.Provider>

@@ -4,7 +4,7 @@ import { readdirSync } from 'fs';
 import mongoose from "mongoose";
 import { Manager } from "erela.js";
 
-const client = new Client({ intents: ['GUILDS', 'DIRECT_MESSAGES', 'GUILD_MEMBERS'] });
+const client = new Client({ intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS', 'GUILD_VOICE_STATES'] });
 
 client.commands = new Collection();
 client.slashCommands = new Collection();
@@ -70,7 +70,7 @@ readdirSync('./events/lavalink').filter((file) => file.endsWith('.js')).forEach(
         event = event?.default;
         if (!event?.run) return console.log(`Unable to load lavalink event : ${file}`);
         event.name = event.name || file.replace('.js', '');
-        client.on(event.name, event.run.bind(null, client));
+        client.manager.on(event.name, event.run.bind(null, client));
         console.log(`Successfully loaded lavalink event : ${file}`);
     });
 });

@@ -1,7 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
-import { BsGithub } from 'react-icons/bs';
+import { AiFillHome } from 'react-icons/ai';
+import { FaList } from 'react-icons/fa';
+import { BsGithub, BsDiscord } from 'react-icons/bs';
+import { GoPlus } from 'react-icons/go';
+import { IoMdSettings } from 'react-icons/io';
 
 import { API_URL, DISCORD_CDN, GITHUB, INVITE_LINK, SUPPORT_SERVER } from '../../utils/constants.js';
 import mainContext from '../../contexts/mainContext.jsx';
@@ -75,12 +79,12 @@ const Navbar = () => {
         return (
             <>
                 <div className="pages">
-                    <NavLink onClick={() => setActive(!active)} to='/'>Home</NavLink>
-                    <NavLink onClick={() => setActive(!active)} to='/commands'>Commands</NavLink>
-                    <NavLink onClick={() => setActive(!active)} to='/dashboard'>Dashboard</NavLink>
-                    <a onClick={() => setActive(!active)} target='_blank' rel="noopener noreferrer" href={SUPPORT_SERVER}>Support Server</a>
-                    <a onClick={() => setActive(!active)} className='invite' target='_blank' rel="noopener noreferrer" href={INVITE_LINK}>Invite Bot</a>
-                    <a className='github' onClick={() => setActive(!active)} target='_blank' rel="noopener noreferrer" href={GITHUB}><BsGithub /></a>
+                    <NavLink onClick={() => setActive(!active)} to='/'><AiFillHome /><span>Home</span></NavLink>
+                    <NavLink onClick={() => setActive(!active)} to='/commands'><FaList /><span>Commands</span></NavLink>
+                    <NavLink onClick={() => setActive(!active)} to='/dashboard'><IoMdSettings /><span>Dashboard</span></NavLink>
+                    <a onClick={() => setActive(!active)} target='_blank' rel="noopener noreferrer" href={SUPPORT_SERVER}><BsDiscord /><span>Discord</span></a>
+                    <a onClick={() => setActive(!active)} className='invite' target='_blank' rel="noopener noreferrer" href={INVITE_LINK}><GoPlus /><span>Invite</span></a>
+                    <a className='github' onClick={() => setActive(!active)} target='_blank' rel="noopener noreferrer" href={GITHUB}><BsGithub /><span>Github</span></a>
                     <Login />
                 </div>
             </>
@@ -95,7 +99,7 @@ const Navbar = () => {
                 </div>
                 <div className={active ? 'menu active-menu' : 'menu'}>
                     <Login />
-                    <div className='menu-btn' style={{marginBottom: '1px'}} onClick={() => setActive(!active)}></div>
+                    <div className='menu-btn' style={{ marginBottom: '1px' }} onClick={() => setActive(!active)}></div>
                 </div>
 
                 <Pages />

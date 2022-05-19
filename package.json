@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AmJit/Discord-MusicBot.git"
+    "url": "git+https://github.com/iamsurojit/Discord-MusicBot.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AmJit/Discord-MusicBot/issues"
+    "url": "https://github.com/iamsurojit/Discord-MusicBot/issues"
   },
-  "homepage": "https://github.com/AmJit/Discord-MusicBot#readme",
+  "homepage": "https://github.com/iamsurojit/Discord-MusicBot#readme",
   "dependencies": {
     "axios": "^0.27.2",
     "connect-mongo": "^4.6.0",
