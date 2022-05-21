@@ -1,0 +1,48 @@
+.sp__header {
+    color: white;
+    text-align: center;
+    margin: 100px 0;
+    text-transform: capitalize;
+}
+
+.servers {
+    margin: 0 30vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    @media screen and (max-width:900px) {
+        margin: 0 5vw;
+        flex-direction: column;
+    }
+
+    .server-container {
+        color: white;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        background-color: var(--dark-grey);
+        margin: 15px 0;
+        padding: 15px 25px;
+        border-radius: 3px;
+
+        img {
+            height: 30px;
+            border-radius: 100%;
+            margin-right: 10px;
+        }
+
+        a {
+            color: white;
+            background-color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 3px;
+            margin-left: auto;
+
+            &:hover{
+                background-color: var(--primary-dark);
+            }
+        }
+    }
+}

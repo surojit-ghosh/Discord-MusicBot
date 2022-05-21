@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Loading } from '../../components/index.js';
 
 import './Commands.scss';
 
@@ -36,33 +37,35 @@ const Commands = () => {
 
     return (
         <>
-            <h1 className='commands__header'>Commands</h1>
-            <div className='commands'>
-                {isFetching && <p>Fetching commands from bot...</p>}
-                {isError && <p>Unable to fetch data from the bot...</p>}
+            {isFetching ? <Loading /> :
+                <>
+                    <h1 className='commands__header'>Commands</h1>
+                    <div className='commands'>
+                        {isError && <p>Unable to fetch data from the bot...</p>}
 
-                {((!isFetching && !isError) && Object.keys(commands).length > 0) && (
-                    <div className="commands-category">
-                        {Object.keys(commands).map((category, index) => (
-                            <button key={index} className={active === category ? 'active' : null} onClick={() => handleClick(category)}>{category}</button>
-                        ))}
-                    </div>
-                )}
-
-                {(!isFetching && !isError && commands[active]?.length) && (
-                    <div className="commands-list">
-                        {commands[active].map((cmd, index) => (
-                            <div key={index} className="cmd">
-                                <div>
-                                    <p className='command__name'>{prefix + cmd.name + ' -'} <span className='command__description'>{cmd.description}</span></p>
-                                </div>
-                                <p className='command__usage'>Usage - <span>{prefix + cmd.usage}</span></p>
+                        {((!isFetching && !isError) && Object.keys(commands).length > 0) && (
+                            <div className="commands-category">
+                                {Object.keys(commands).map((category, index) => (
+                                    <button key={index} className={active === category ? 'active' : null} onClick={() => handleClick(category)}>{category}</button>
+                                ))}
                             </div>
-                        ))}
-                    </div>
-                )}
+                        )}
 
-            </div>
+                        {(!isFetching && !isError && commands[active]?.length) && (
+                            <div className="commands-list">
+                                {commands[active].map((cmd, index) => (
+                                    <div key={index} className="cmd">
+                                        <div>
+                                            <p className='command__name'>{prefix + cmd.name + ' -'} <span className='command__description'>{cmd.description}</span></p>
+                                        </div>
+                                        <p className='command__usage'>Usage - <span>{prefix + cmd.usage}</span></p>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </>
+            }
         </>
     );
 };

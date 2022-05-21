@@ -61,7 +61,7 @@ const Navbar = () => {
                     {user ? (<>
                         <img style={imgStyle} src={`${DISCORD_CDN}/avatars/${user?.id}/${user?.avatar}.png`} alt="Logo" />
                         <MdOutlineKeyboardArrowDown style={iconStyle} onClick={() => setUserOptions(!userOptions)} />
-                    </>) : (<a className='login' href={API_URL + '/api/auth/discord'}>Login</a>)
+                    </>) : (<NavLink className='login' to='/login'>Login</NavLink>)
                     }
                     {userOptions &&
                         <div style={userOptionsStyle} className="userOptions">

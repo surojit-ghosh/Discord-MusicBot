@@ -2,12 +2,14 @@ import { Router } from "express";
 import config from "../../../config.js";
 import authRoute from './auth.js';
 import guildRoute from './guilds.js';
+import dashboardRoute from './dashboard.js';
 
 const router = Router();
 
 export default (client) => {
     router.use('/auth', authRoute);
     router.use('/guilds', guildRoute);
+    router.use('/dashboard', dashboardRoute);
 
     router.get('/commands', (req, res) => {
         const commands = client.commands.map((cmd) => cmd);

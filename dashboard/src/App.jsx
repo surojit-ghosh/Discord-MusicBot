@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 import { Navbar, Loading } from './components'
-import { Home, Commands, Dashboard, Profile } from './pages';
+import { Home, Commands, Dashboard, Profile, Login } from './pages';
 import mainContext from './contexts/mainContext.jsx';
+import Auth from './helpers/Auth.jsx';
 
 const App = () => {
     const [isFetching, setIsFetching] = useState(true);
@@ -36,9 +37,10 @@ const App = () => {
                         <Routes>
                             <Route path='/' element={<Home />} />
                             <Route path='/commands' element={<Commands />} />
-                            <Route path='/profile' element={<Profile />} />
-                            <Route path='/dashboard' element={<Dashboard />} />
-                            <Route path='/dashboard/:id' element={<Dashboard />} />
+                            <Route path='/login' element={<Login />} />
+                            <Route path='/profile' element={<Auth><Profile /></Auth>} />
+                            <Route path='/dashboard' element={<Auth><Dashboard /></Auth>} />
+                            <Route path='/dashboard/:id' element={<Auth><Dashboard /></Auth>} />
                         </Routes>
                     </BrowserRouter>
                 </mainContext.Provider>

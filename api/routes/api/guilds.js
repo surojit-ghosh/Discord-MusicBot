@@ -20,4 +20,9 @@ router.get('/', checkAuth, async (req, res) => {
     res.json({ adminGuilds, mutualGuilds });
 });
 
+router.get('/redirect', checkAuth, async (req, res) => {
+    const { guild_id } = req.query;
+    res.redirect(`${config.dashboardURL}/dashboard/${guild_id}`);
+});
+
 export default router;

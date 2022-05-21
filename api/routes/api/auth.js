@@ -8,7 +8,7 @@ const router = Router();
 
 router.get('/discord', passport.authenticate('discord'));
 
-router.get('/redirect', passport.authenticate('discord'), (req, res) => res.redirect(config.dashboardURL));
+router.get('/redirect', passport.authenticate('discord'), (req, res) => res.redirect(config.dashboardURL + '/dashboard'));
 
 router.get('/status', async (req, res) => {
     if (req.user) {
