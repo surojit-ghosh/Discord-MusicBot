@@ -3,6 +3,7 @@ import config from './config.js';
 import { readdirSync } from 'fs';
 import mongoose from "mongoose";
 import { Manager } from "erela.js";
+import Spotify from "erela.js-spotify";
 
 const client = new Client({ intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS', 'GUILD_VOICE_STATES'] });
 
@@ -24,7 +25,13 @@ client.manager = new Manager({
     send(id, payload) {
         const guild = client.guilds.cache.get(id);
         if (guild) guild.shard.send(payload);
-    }
+    },
+    plugins: [
+        new Spotify({
+            clientID: config.spotifyClientId,
+            clientSecret: config.spotifyClientSecret
+        })
+    ]
 });
 
 // Load all client events

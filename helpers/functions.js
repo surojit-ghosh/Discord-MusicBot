@@ -29,9 +29,9 @@ const pannel = async (client, player = null) => {
             .setColor(client.color.default)
             .setTitle(player.queue.current.title)
             .setURL(player.queue.current.uri)
-            .setDescription(` `)
-            .setImage(player.queue.current.displayThumbnail("maxresdefault"))
-            .setFooter({ text: `Requested By: ${player.queue.current.requester.username} | Volume: ${player.volume}%` })
+            .setDescription(` `);
+        if (player.queue.current.displayThumbnail) embed.setImage(player.queue.current.displayThumbnail("maxresdefault"));
+        embed.setFooter({ text: `Requested By: ${player.queue.current.requester.username} | Volume: ${player.volume}%` })
 
         const guildData = await guildModel.findOne({ guildId: player.options.guild });
         client.channels.cache.get(guildData?.channelId).messages.fetch(guildData?.messageId).then((m) => {

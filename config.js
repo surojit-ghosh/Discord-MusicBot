@@ -21,4 +21,6 @@ export default {
         port: parseInt(process.env.LAVALINK_PORT) || 2333,
         password: process.env.LAVALINK_PASSWORD || ''
     },
+    spotifyClientId: process.env.SPOTIFY_CLIENT_ID || '',
+    spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET || '',
 };
